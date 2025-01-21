@@ -33,7 +33,7 @@ const Skills = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-blue-50 to-purple-50 py-20">
+    <div className="bg-gradient-to-tr from-blue-100 to-purple-100 py-12">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <motion.div

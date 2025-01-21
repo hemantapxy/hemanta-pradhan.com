@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
 
 const Projects = () => {
   const projects = [
@@ -76,29 +78,61 @@ const Projects = () => {
     },
   ];
 
+
+  const projectVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div className="bg-gray-50 py-16">
-      <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-8">My Projects</h2>
+    <div className="relative py-16 bg-gradient-to-r from-purple-500 to-blue-500 overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 -z-10">
+        {/* Animated Circular Elements */}
+        <div className="absolute top-10 left-16 w-60 h-60 bg-blue-300 rounded-full opacity-30 animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-400 rounded-full opacity-20 blur-xl"></div>
+        <div className="absolute top-1/3 left-1/3 w-96 h-96 bg-gradient-to-r from-blue-300 to-purple-400 rounded-full opacity-10 blur-2xl animate-ping"></div>
+      </div>
+  
+      {/* Content */}
+      <div className="container mx-auto px-6 relative z-10">
+        <h2 className="text-4xl font-extrabold text-center text-blue-800 mb-12 drop-shadow-lg">
+          My Projects
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div
+          {projects.map((project, index) => (
+            <motion.div
               key={project.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              variants={projectVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all transform hover:scale-105"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
+              {/* Image Section with Hover Animation */}
+              <div className="relative group">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover transition-transform group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-0 group-hover:opacity-50 transition-opacity"></div>
+                <h3 className="absolute bottom-4 left-4 text-lg text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+                  {project.title}
+                </h3>
+              </div>
+  
+              {/* Text Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-700 mb-4">{project.description}</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-3">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.skills.map((skill, index) => (
                     <span
                       key={index}
-                      className="bg-blue-100 text-blue-800 text-sm px-2 py-1 rounded"
+                      className="bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm px-3 py-1 rounded-full shadow-md hover:scale-105 transition-transform"
                     >
                       {skill}
                     </span>
@@ -106,17 +140,21 @@ const Projects = () => {
                 </div>
                 <a
                   href={project.link}
-                  className="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-gradient-to-l hover:scale-105 transition-transform"
                 >
                   View Project
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </div>
   );
-};
+  
 
+  
+  
+  
+}  
 export default Projects;

@@ -1,32 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
-    <nav className="bg-gradient-to-r from-purple-600 to-indigo-600 p-4 text-white shadow-lg">
+    <nav className="bg-gradient-to-r from-blue-800 to-purple-800 text-white p-4 shadow-lg fixed w-full top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo with Image and Text */}
-        <div className="text-xl font-bold">
-          <Link to="/" className="flex items-center space-x-2">
-            {/* Logo Image */}
-            <img
-              src="https://media.licdn.com/dms/image/v2/D5603AQFCnulgMWU2Pw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727279323690?e=1742428800&v=beta&t=RkKAHVDe6srGJs_sVdtKJYCcIUEpr5j0QXX9W6fUSrI" // Replace with your logo URL
-              alt="Logo"
-              className="h-10 w-10"
-            />
-            {/* Logo Text */}
-            <span className="text-2xl font-extrabold text-white">Hemanta's'</span>
-            <span className="text-2xl font-light text-yellow-300">.</span>
-          </Link>
-        </div>
+        {/* Logo on the Left */}
+        <Link to="/" className="text-2xl font-bold hover:text-blue-200 transition duration-300">
+          Hemanta's'
+        </Link>
 
-        {/* Hamburger Menu (Mobile) */}
-        <div className="block lg:hidden">
+        {/* Hamburger Menu for Mobile */}
+        <div className="md:hidden">
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="focus:outline-none"
+            onClick={toggleMenu}
+            className="text-white focus:outline-none"
           >
             <svg
               className="w-6 h-6"
@@ -40,51 +34,114 @@ function Navbar() {
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h16m-7 6h7"
-              />
+              ></path>
             </svg>
           </button>
         </div>
 
-        {/* Navigation Links */}
-        <ul
-          className={`${
-            isOpen ? "block" : "hidden"
-          } lg:flex lg:space-x-4 mt-4 lg:mt-0`}
-        >
+        {/* Desktop Menu - Centered */}
+        <ul className="hidden md:flex space-x-6 items-center absolute left-1/2 transform -translate-x-1/2">
           <li>
-            <Link to="/" className="hover:underline block lg:inline-block">
+            <Link to="/" className="hover:text-blue-200 transition duration-300">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about" className="hover:underline block lg:inline-block">
+            <Link to="/about" className="hover:text-blue-200 transition duration-300">
               About
             </Link>
           </li>
           <li>
-            <Link to="/projects" className="hover:underline block lg:inline-block">
-              Projects
+            <Link to="/projects" className="hover:text-blue-200 transition duration-300">
+             Projects
             </Link>
           </li>
           <li>
-            <Link to="/skills" className="hover:underline block lg:inline-block">
+            <Link to="/skills" className="hover:text-blue-200 transition duration-300">
               Skills
             </Link>
           </li>
           <li>
-            <Link to="/blogs" className="hover:underline block lg:inline-block">
+            <Link to="/blogs" className="hover:text-blue-200 transition duration-300">
               Blogs
             </Link>
           </li>
           <li>
-            <Link to="/contact" className="hover:underline block lg:inline-block">
+            <Link to="/education" className="hover:text-blue-200 transition duration-300">
+              Education
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="hover:text-blue-200 transition duration-300">
               Contact
             </Link>
           </li>
         </ul>
+
+        {/* Login Button on the Right */}
+        <div className="hidden md:block">
+          <Link
+            to="/login"
+            className="bg-transparent border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-blue-600 transition duration-300"
+          >
+            Login
+          </Link>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden mt-4">
+          <ul className="flex flex-col space-y-4">
+            <li>
+              <Link to="/" className="block hover:text-blue-200 transition duration-300">
+               Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="block hover:text-blue-200 transition duration-300">
+               About
+              </Link>
+            </li>
+            <li>
+              <Link to="/skills" className="block hover:text-blue-200 transition duration-300">
+                Skills
+              </Link>
+            </li>
+            <li>
+              <Link to="/blogs" className="block hover:text-blue-200 transition duration-300">
+              Blogs
+              </Link>
+            </li>
+            <li>
+              <Link to="/projects" className="block hover:text-blue-200 transition duration-300">
+                Projects
+              </Link>
+            </li>
+            <li>
+            <Link to="/education" className="hover:text-blue-200 transition duration-300">
+              Education
+            </Link>
+          </li>
+            <li>
+              <Link to="/contact" className="block hover:text-blue-200 transition duration-300">
+                Contact
+              </Link>
+            </li>
+            {/* Login Button for Mobile */}
+            <li>
+              <Link
+                to="/login"
+                className="block bg-transparent border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-blue-600 transition duration-300"
+              >
+                Login
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
     </nav>
   );
-}
+};
 
 export default Navbar;
