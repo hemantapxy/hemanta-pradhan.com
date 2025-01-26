@@ -30,7 +30,7 @@ const InstructorSection = () => {
       description: [
         'Certified Unity Developer | Certified AWS Solution Architect | Blockchain | Unreal Engine | Web3 | Community Management | Six Sigma Yellow Belt | Keynote Speaker | Building Metaverse for Skill Training',
       ],
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQEH-KSAAfZ1wA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1732787292229?e=1742428800&v=beta&t=4Iy1iMzImw3zooCcd0nyokUUl8nNq5kzVUk2SYxuxgA', // Replace with Lakshay Kumar's photo URL
+      image: 'https://res.cloudinary.com/djvgkqgkt/image/upload/v1737564016/imageUpload/ybccnccs9f9vqrzlu0q5.jpg', // Replace with Lakshay Kumar's photo URL
     },
   ];
 

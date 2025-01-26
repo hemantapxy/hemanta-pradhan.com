@@ -7,28 +7,28 @@ const StudentTestimonials = () => {
       role: 'Devops Developer',
       review:
         ' DevOps Developer is a professional who bridges the gap between development and operations teams to streamline the software development lifecycle and improve collaboration. ',// description for devops developer
-      image: 'https://scontent.fbbi1-2.fna.fbcdn.net/v/t39.30808-6/464009376_980564367208184_6517550152661259008_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Ll-UfY3ZdHoQ7kNvgHWvq--&_nc_zt=23&_nc_ht=scontent.fbbi1-2.fna&_nc_gid=A121tDjyyo3MWrRTSZ5Z0lF&oh=00_AYDiBqIebdFaWPxvMrpNxxH5bcI0hmH2j3pt6p5ztHqm2g&oe=6790580F', // Replace with Parth Singh's photo URL
+      image: 'https://res.cloudinary.com/djvgkqgkt/image/upload/v1737870792/imageUpload/s9hoyuad0tij1r8mgc9k.png', // Replace with Parth Singh's photo URL
     },
     {
       name: 'Sarbeshwar Parida',
       role: 'AR-VR Developer',
       review:
         "An AR/VR Developer is a technology professional who designs, develops, and implements immersive experiences using Augmented Reality (AR) and Virtual Reality (VR) technologies.",
-      image: 'https://scontent.fbbi1-1.fna.fbcdn.net/v/t39.30808-6/352798283_1401061134017859_4783735444320809805_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=64QxkSfHaoUQ7kNvgHicfgN&_nc_zt=23&_nc_ht=scontent.fbbi1-1.fna&_nc_gid=AC1Yy-p7PQuBFU__5qeKgG5&oh=00_AYABXB_4MYIb5K0Mb420V9Lw-OsEhewUUQmJ75iSg3Jb1g&oe=679059F1', // Replace with Vedant Jain's photo URL
+      image: 'https://res.cloudinary.com/djvgkqgkt/image/upload/v1737871219/imageUpload/og2csoe7afrvq5mmdvag.png', // Replace with Vedant Jain's photo URL
     },
     {
       name: 'Shakti Shree Mishra',
       role: 'Intern at DSDA',
       review:
         'DSDA Intern (Data Science and Data Analytics Intern) for the Government of Odisha is a professional engaged in applying data science and analytical techniques to solve real-world problems.',
-      image: 'https://scontent.fbbi1-2.fna.fbcdn.net/v/t39.30808-6/462355346_971698321428122_3665243599094423224_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=zrU21Rm0KSkQ7kNvgGUuA-9&_nc_zt=23&_nc_ht=scontent.fbbi1-2.fna&_nc_gid=APkyCnlQnszxS2AqtiLc7CA&oh=00_AYD6Xr2L6K3iPIkCiW9A7epp-8AN3krVJSNGAFVBW85wJQ&oe=67905BDC', // Replace with Tushar Gupta's photo URL
+      image: 'https://res.cloudinary.com/djvgkqgkt/image/upload/v1737870955/imageUpload/rpnl6ecngp9xmdwc3zcx.png', // Replace with Tushar Gupta's photo URL
     },
     {
       name: 'Satya Prangyan Dash',
       role: 'Final year student of MCA',
       review:
         '  MCA is advanced computing concepts, software development, and IT applications. As they approach the culmination of their academic journey.',
-      image: 'https://scontent.fbbi1-1.fna.fbcdn.net/v/t39.30808-6/473314202_1258858388557677_8196290430711067962_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=tWRcGtQpCtsQ7kNvgG_-T0Y&_nc_zt=23&_nc_ht=scontent.fbbi1-1.fna&_nc_gid=Ax9vyIHLe9yrce_BKwESDpk&oh=00_AYCVhmbVjQ_Jc2_gWdE-z2OduzgQ2r9jcw60pwsTGxtYNA&oe=67906C5A', // Replace with Anshika Aggarwal's photo URL
+      image: 'https://res.cloudinary.com/djvgkqgkt/image/upload/v1737870891/imageUpload/wjh0qhgzxhy5cggrgiqe.png', // Replace with Anshika Aggarwal's photo URL
     },
     // {
     //   name: 'Bhaiya Bhalla',

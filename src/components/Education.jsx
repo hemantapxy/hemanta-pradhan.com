@@ -26,7 +26,7 @@ const Education = () => {
           </p>
           <div className="mt-4">
             <img
-              src="https://scontent.fbbi1-2.fna.fbcdn.net/v/t39.30808-6/352203474_771756934677449_246052972089898328_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=MtPsZ5pCRdwQ7kNvgEKNdjo&_nc_zt=23&_nc_ht=scontent.fbbi1-2.fna&_nc_gid=AGUZzL7uCLB7bZF7Kr48CD1&oh=00_AYB4Z63FNlb8pnIWfByDA7hnlQ75eyhFwFBceW1eVKYjUQ&oe=6792416C"
+              src="https://res.cloudinary.com/djvgkqgkt/image/upload/v1737871667/imageUpload/uversa3so1qaef2hjq8k.png"
               alt="10th Grade School"
               className="w-32 h-32 object-cover rounded-lg shadow-md"
             />
@@ -53,7 +53,7 @@ const Education = () => {
           </p>
           <div className="mt-4">
             <img
-              src="https://content.jdmagicbox.com/comp/puri/u8/9999p6752.6752.131206122647.s2u8/catalogue/swadhin-residential-college-nimapara-puri-colleges-4a1hga7xpb.jpg"
+              src="https://res.cloudinary.com/djvgkqgkt/image/upload/v1737871765/imageUpload/e6b29euhipurqjpukfhx.png"
               alt="12th Grade School"
               className="w-32 h-32 object-cover rounded-lg shadow-md"
             />
@@ -80,7 +80,7 @@ const Education = () => {
           </p>
           <div className="mt-4">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdxxCl0k1-quDIx6PZPjZJb-XCtUQ6zLfb2w&s"
+              src="https://res.cloudinary.com/djvgkqgkt/image/upload/v1737871853/imageUpload/m6zpm23l2xocu9n4jxdx.png"
               alt="Graduation College"
               className="w-32 h-32 object-cover rounded-lg shadow-md"
             />
@@ -104,7 +104,7 @@ const Education = () => {
           </p>
           <div className="mt-4">
             <img
-              src="https://centurionuniv.edu.in/wp-content/uploads/school-slider/BBSR/2.jpg"
+              src="https://res.cloudinary.com/djvgkqgkt/image/upload/v1737871895/imageUpload/zzamra5jiztjw7ddw9sh.png"
               alt="MCA College"
               className="w-32 h-32 object-cover rounded-lg shadow-md"
             />

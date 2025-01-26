@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-blue-800 to-purple-800 text-white p-4 shadow-lg fixed w-full top-0 z-50">
+    <nav className="bg-gradient-to-r from-blue-800 to-purple-800 text-white p-3 shadow-lg fixed w-full top-0 z-50 ">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo on the Left */}
         <Link to="/" className="text-2xl font-bold hover:text-blue-200 transition duration-300">
