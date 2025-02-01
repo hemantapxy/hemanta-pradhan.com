@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast, Toaster } from 'react-hot-toast';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,8 +9,13 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleNavClick = (section) => {
+    toast.success(`Welcome to ${section} section`);
+  };
+
   return (
     <nav className="bg-gradient-to-r from-blue-800 to-purple-800 text-white p-3 shadow-lg fixed w-full top-0 z-50 ">
+        <Toaster />
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo on the Left */}
         <Link to="/" className="text-2xl font-bold hover:text-blue-200 transition duration-300">
@@ -42,37 +48,43 @@ const Navbar = () => {
         {/* Desktop Menu - Centered */}
         <ul className="hidden md:flex space-x-6 items-center absolute left-1/2 transform -translate-x-1/2">
           <li>
-            <Link to="/" className="hover:text-blue-200 transition duration-300">
+            <Link to="/" className="hover:text-blue-200 transition duration-300"  onClick={() => handleNavClick("Home")}>
               Home
             </Link>
           </li>
           <li>
-            <Link to="/about" className="hover:text-blue-200 transition duration-300">
+            <Link to="/about" className="hover:text-blue-200 transition duration-300"
+             onClick={() => handleNavClick("About")}>
               About
             </Link>
           </li>
           <li>
-            <Link to="/projects" className="hover:text-blue-200 transition duration-300">
+            <Link to="/projects" className="hover:text-blue-200 transition duration-300"
+             onClick={() => handleNavClick("projects")}>
              Projects
             </Link>
           </li>
           <li>
-            <Link to="/skills" className="hover:text-blue-200 transition duration-300">
+            <Link to="/skills" className="hover:text-blue-200 transition duration-300"
+             onClick={() => handleNavClick("skills")}>
               Skills
             </Link>
           </li>
           <li>
-            <Link to="/blogs" className="hover:text-blue-200 transition duration-300">
+            <Link to="/blogs" className="hover:text-blue-200 transition duration-300"
+             onClick={() => handleNavClick("Blogs")}>
               Blogs
             </Link>
           </li>
           <li>
-            <Link to="/education" className="hover:text-blue-200 transition duration-300">
+            <Link to="/education" className="hover:text-blue-200 transition duration-300"
+             onClick={() => handleNavClick("Education")}>
               Education
             </Link>
           </li>
           <li>
-            <Link to="/contact" className="hover:text-blue-200 transition duration-300">
+            <Link to="/contact" className="hover:text-blue-200 transition duration-300"
+             onClick={() => handleNavClick("Contact")}>
               Contact
             </Link>
           </li>

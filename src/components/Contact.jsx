@@ -21,6 +21,7 @@ const Contact = () => {
   });
 
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // Add loading state
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -39,8 +40,10 @@ const Contact = () => {
       return;
     }
 
+    setIsLoading(true); // Start loading
+
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('http://localhost:5000/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,21 +51,26 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
-      if (response.ok) {
-        setIsSuccessModalOpen(true); // Show the success modal
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: '',
-        });
-      } else {
-        alert('Failed to send message.');
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
+
+      const result = await response.json();
+      console.log('Success:', result);
+
+      setIsSuccessModalOpen(true); // Show the success modal
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      });
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred while sending the message.');
+      alert('An error occurred while sending the message. Please try again later.');
+    } finally {
+      setIsLoading(false); // Stop loading
     }
   };
 
@@ -177,8 +185,9 @@ const Contact = () => {
               <button
                 type="submit"
                 className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+                disabled={isLoading} // Disable button while loading
               >
-                Send Message
+                {isLoading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </motion.div>
@@ -192,7 +201,6 @@ const Contact = () => {
               Contact Information
             </h3>
             <div className="flex flex-col items-center space-y-6">
-              {/* Add your image here */}
               <motion.img
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
@@ -213,7 +221,6 @@ const Contact = () => {
                   <span className="font-semibold">Address:</span> Puri, Odisha, India
                 </p>
               </div>
-              {/* Social Media Links (Optional) */}
               <div className="flex space-x-4">
                 <a
                   href="https://www.linkedin.com/in/hemanta-pradhan-801146296/"
@@ -246,14 +253,14 @@ const Contact = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-          onClick={() => setIsSuccessModalOpen(false)} // Close modal on outside click
+          onClick={() => setIsSuccessModalOpen(false)}
         >
           <motion.div
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.8 }}
             className="bg-white p-8 rounded-xl shadow-2xl max-w-md text-center"
-            onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
+            onClick={(e) => e.stopPropagation()}
           >
             <motion.svg
               initial={{ scale: 0 }}
@@ -290,5 +297,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
