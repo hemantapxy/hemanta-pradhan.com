@@ -33,47 +33,28 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Check if all fields are filled
-    if (!formData.name || !formData.email || !formData.phone || !formData.subject || !formData.message) {
-      alert('Please fill out all fields.');
-      return;
-    }
-
-    setIsLoading(true); // Start loading
-
+    const { name, email, phone, subject, message } = formData;
+    setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+        const response = await fetch('http://localhost:5000/api/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, phone, subject, message }),
+        });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const result = await response.json();
-      console.log('Success:', result);
-
-      setIsSuccessModalOpen(true); // Show the success modal
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-      });
+        const data = await response.json();
+        if (response.ok) {
+            console.log('✅ Success:', data.message);
+            setIsSuccessModalOpen(true);
+        } else {
+            console.error('❌ Error:', data.message);
+        }
     } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred while sending the message. Please try again later.');
+        console.error('❌ Network error:', error);
     } finally {
-      setIsLoading(false); // Stop loading
+        setIsLoading(false);
     }
-  };
-
+};
   return (
     <div className="bg-gradient-to-r from-blue-50 to-purple-50 py-16">
       <div className="container mx-auto px-6">
